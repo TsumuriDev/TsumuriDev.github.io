@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tsumuri19 · Nguyễn Văn Trường — Official Portfolio & ZoeMC Network</title>
+    <meta name="description" content="Trang chủ chính thức của Tsumuri19 (Nguyễn Văn Trường) — Minecraft Developer & VTuber. Khám phá máy chủ ZoeMC Survival Mega và kênh TikTok @tsumuri.vtuber!">
+    
+    <!-- Google Fonts: Montserrat + Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ─── Toast Thông Báo Copy IP ─── -->
+    <div id="copy-toast" class="copy-toast" aria-live="polite">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Đã sao chép IP máy chủ: <strong>zoemc.online</strong></span>
+    </div>
+
+    <!-- ─── Floating BGM Music Player (ZoeMC Cyberpunk Style) ─── -->
+    <div class="music-player-widget" id="music-player">
+        <audio id="bgm-audio" loop preload="metadata">
+            <source src="assets/bgm.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="music-disc-wrapper" id="music-disc" title="Nhấn để Bật/Tắt nhạc">
+            <img src="assets/tsumuri-avatar.webp" alt="Vinyl Disc" class="music-disc-img">
+            <div class="disc-hole"></div>
+        </div>
+
+        <div class="music-info">
+            <div class="music-status">
+                <span class="music-wave" id="music-wave" aria-hidden="true">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                    <span class="bar bar-4"></span>
+                </span>
+                <span class="music-label" id="music-label">BGM · TẮT</span>
+            </div>
+            <span class="music-title" title="Overturn (反转进行曲) — SShiroko chill">Overturn (反转进行曲)</span>
+        </div>
+
+        <div class="music-controls">
+            <button class="music-btn" id="play-pause-btn" title="Bật/Tắt nhạc" aria-label="Play or Pause BGM">
+                <i class="fa-solid fa-play" id="play-icon"></i>
+            </button>
+            <button class="music-btn mute-btn" id="mute-btn" title="Tắt/Bật tiếng" aria-label="Mute or Unmute">
+                <i class="fa-solid fa-volume-high" id="vol-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ─── Top Navigation Bar ─── -->
+    <nav class="site-nav">
+        <a href="#" class="nav-brand">
+            <img src="assets/tsumuri-avatar.webp" alt="Tsumuri19 Avatar" class="brand-avatar-img">
+            <span class="brand-name">TSUMURI19 <span class="brand-tag">· ZOEMC</span></span>
+        </a>
+        <div class="nav-links">
+            <a href="https://discord.gg/wqcNG4YSBT" target="_blank" rel="noopener" class="nav-studio" title="ZOE STUDIO — Mọi thứ về Minecraft">
+                <i class="fa-solid fa-hammer"></i> ZOE STUDIO
+            </a>
+            <a href="#zoemc" class="nav-highlight">Máy Chủ ZoeMC</a>
+            <a href="#vtuber">Tsumuri VTuber</a>
+            <a href="#destinations">Liên Kết</a>
+            <a href="#archive">Kho Lưu Trữ</a>
+            <a href="https://github.com/TsumuriDev" target="_blank" rel="noopener" class="nav-github" title="GitHub @TsumuriDev">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://discord.gg/Xc7ub3YtEC" target="_blank" rel="noopener" class="nav-discord" title="Discord ZoeMC Server">
+                <i class="fa-brands fa-discord"></i> Discord Server
+            </a>
+            <button class="nav-cta-pill copy-ip-btn" data-ip="zoemc.online" title="Nhấn để sao chép IP máy chủ">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>IP: zoemc.online</span>
+                <i class="fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ─── Hero Section (Vedal Style) ─── -->
+    <section class="hero">
+        <div class="hero-glow"></div>
+        
+        <!-- Rotating Background Decorative Cogs / Minecraft Tech Glyphs -->
+        <div class="hero-decor" aria-hidden="true">
+            <svg class="decor-cog decor-cog--1" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="28" stroke="currentColor" stroke-width="4" fill="none" stroke-dasharray="6, 4"/>
+                <path d="M50 0 L50 14 M50 86 L50 100 M0 50 L14 50 M86 50 L100 50 M14 14 L24 24 M76 76 L86 86 M14 86 L24 76 M76 24 L86 14" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <svg class="decor-cog decor-cog--2" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="32" stroke="currentColor" stroke-width="3" fill="none"/>
+                <circle cx="50" cy="50" r="14" fill="currentColor" opacity="0.3"/>
+            </svg>
+            <svg class="decor-cog decor-cog--3" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="24" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="10, 6"/>
+            </svg>
+            <svg class="decor-cog decor-cog--4" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="20" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="hero-inner">
+            <!-- Left: Hero Brand & Intro -->
+            <div class="hero-brand">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>Server ZoeMC Online · Phiên bản 1.21+</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="hero-lockup">
+                        <span class="name-gradient name-main">TSUMURI19</span>
+                        <span class="hero-amp">&amp;</span>
+                        <span class="name-gradient name-sub">ZOEMC NETWORK</span>
+                    </span>
+                    <span class="real-name-subtitle">Nguyễn Văn Trường</span>
+                </h1>
+                
+                <p class="hero-tagline">Founder ZOE STUDIO · Lead Developer ZoeMC Network · VTuber</p>
+                <p class="hero-subtitle">
+                    Nhà sáng lập <strong>ZOE STUDIO</strong> (Mọi thứ về Minecraft) và hệ thống máy chủ <strong>ZoeMC Survival Mega</strong>, kiêm VTuber lười biếng nhưng đam mê cày code xuyên đêm. Chào mừng bạn đến với thế giới giải trí và khối vuông ma thuật!
+                </p>
+                
+                <div class="hero-actions">
+                    <button class="btn-cta copy-ip-btn" data-ip="zoemc.online">
+                        <i class="fa-solid fa-play"></i>
+                        <span>Sao chép IP: zoemc.online</span>
+                    </button>
+                    <a href="https://discord.gg/wqcNG4YSBT" target="_blank" rel="noopener" class="btn-studio">
+                        <i class="fa-solid fa-hammer"></i>
+                        ZOE STUDIO
+                    </a>
+                    <a href="https://discord.gg/Xc7ub3YtEC" target="_blank" rel="noopener" class="btn-discord">
+                        <i class="fa-brands fa-discord"></i>
+                        ZoeMC Server
+                    </a>
+                    <a href="https://www.tiktok.com/@tsumuri.vtuber" target="_blank" rel="noopener" class="btn-tiktok">
+                        <i class="fa-brands fa-tiktok"></i>
+                        TikTok
+                    </a>
+                    <a href="https://github.com/TsumuriDev" target="_blank" rel="noopener" class="btn-github">
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Interactive Avatar / Hero Mascot -->
+            <div class="hero-visual">
+                <div class="avatar-card-wrapper">
+                    <div class="avatar-glow-ring"></div>
+                    <div class="avatar-display">
+                        <img src="assets/tsumuri-avatar.webp" alt="Tsumuri VTuber" class="avatar-char-img">
+                        <div class="avatar-overlay-badge">
+                            <span class="avatar-badge-dot"></span>
+                            <span>@tsumuri.vtuber</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Tags xung quanh Avatar -->
+                    <div class="avatar-floating-tags">
+                        <div class="tag-pill tag-pill-1">
+                            <i class="fa-solid fa-server"></i> IP: zoemc.online
+                        </div>
+                        <div class="tag-pill tag-pill-2">
+                            <i class="fa-solid fa-cube"></i> Survival Mega
+                        </div>
+                        <div class="tag-pill tag-pill-3">
+                            <i class="fa-brands fa-java"></i> Paper 1.21+ Dev
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── Spotlight Promo Banner (Style Vedal Concert Banner) ─── -->
+    <section class="spotlight-section" id="spotlight">
+        <div class="spotlight-card">
+            <div class="spotlight-art">
+                <img src="assets/zoemc-logo.png" alt="ZoeMC Network Survival Mega" class="spotlight-logo-img">
+            </div>
+            <div class="spotlight-copy">
+                <p class="spotlight-eyebrow">
+                    Máy Chủ Nổi Bật <span aria-hidden="true">·</span> <span>Mùa Mới 2026</span>
+                </p>
+                <h2>ZoeMC — Survival Mega</h2>
+                <p class="spotlight-venue">IP Server: <strong>zoemc.online</strong> · Hỗ trợ Java & Bedrock 1.21+</p>
+                <p class="spotlight-desc">
+                    Trải nghiệm máy chủ sinh tồn RPG với hệ thống MMOItems độc quyền, cân bằng kinh tế thị trường, dungeon săn boss, khu vực an toàn và cộng đồng gắn kết hàng ngày do Tsumuri19 phát triển.
+                </p>
+                <div class="spotlight-btn-group">
+                    <button class="spotlight-link copy-ip-btn" data-ip="zoemc.online">
+                        <i class="fa-solid fa-copy"></i>
+                        Sao chép IP Chơi Ngay <span aria-hidden="true">→</span>
+                    </button>
+                    <a href="https://discord.gg/Xc7ub3YtEC" target="_blank" rel="noopener" class="spotlight-secondary-btn">
+                        <i class="fa-brands fa-discord"></i> Cộng đồng Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── Core Featured Projects (Split Section Style Vedal Neuro & Evil) ─── -->
+    <div class="projects-zone" id="zoemc">
+        
+        <!-- Showcase 1: ZoeMC Network (Neon Purple / Mystic Magenta Accent) -->
+        <section class="project-showcase project--purple">
+            <div class="project-bg"></div>
+            <div class="project-layout">
+                <div class="project-art">
+                    <div class="mockup-frame">
+                        <div class="mockup-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="mockup-title">ZoeCore // Paper 1.21.x Engine</span>
+                        </div>
+                        <div class="mockup-body">
+                            <pre><code><span class="c-purple">public class</span> <span class="c-blue">ZoeNetworkPlugin</span> <span class="c-purple">extends</span> <span class="c-pink">JavaPlugin</span> {
+    <span class="c-muted">// Developed by Tsumuri19 (Nguyễn Văn Trường)</span>
+    <span class="c-green">@Override</span>
+    <span class="c-purple">public void</span> <span class="c-blue">onEnable</span>() {
+        getLogger().info(<span class="c-lime">"ZoeMC Survival Mega Online!"</span>);
+        registerCustomEconomy();
+        startDungeonEngine(TPS_LOCK_20);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag-accent">HỆ SINH THÁI MINECRAFT SERVER</span>
+                    <h2 class="project-title">ZoeMC Network & Engine</h2>
+                    <p class="project-desc">
+                        Kiến trúc máy chủ Minecraft hiệu năng cao chạy trên Paper 1.21+ với Java 21. Tích hợp các plugin tự code tối ưu, hệ thống MMOItems, kinh tế thị trường, DeluxeMenus giao diện neon sắc nét và tính năng bảo vệ chống giật lag tuyệt đối.
+                    </p>
+                    <div class="tech-stack-row">
+                        <span class="tech-badge">Paper 1.21+</span>
+                        <span class="tech-badge">Java 21</span>
+                        <span class="tech-badge">MMOItems</span>
+                        <span class="tech-badge">Vault Economy</span>
+                        <span class="tech-badge">DeluxeMenus</span>
+                    </div>
+                    <div class="project-links">
+                        <button class="action-link copy-ip-btn" data-ip="zoemc.online">
+                            <i class="fa-solid fa-gamepad"></i>
+                            IP: zoemc.online
+                        </button>
+                        <a href="https://github.com/TsumuriDev" target="_blank" rel="noopener" class="action-link">
+                            <i class="fa-brands fa-github"></i>
+                            GitHub @TsumuriDev
+                        </a>
+                        <a href="https://discord.gg/Xc7ub3YtEC" target="_blank" rel="noopener" class="action-link">
+                            <i class="fa-brands fa-discord"></i>
+                            Discord Server
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase 2: Tsumuri VTuber (Lime Green / Playful Pink Accent - Layout Reverse) -->
+        <section class="project-showcase project--lime" id="vtuber">
+            <div class="project-bg"></div>
+            <div class="project-layout project-layout--reverse">
+                <div class="project-art">
+                    <div class="vtuber-card-showcase">
+                        <img src="assets/tsumuri-avatar.webp" alt="Tsumuri VTuber Profile" class="vtuber-big-avatar">
+                        <div class="vtuber-glow-ring"></div>
+                        <div class="vtuber-badge-float">
+                            <i class="fa-brands fa-tiktok"></i> @tsumuri.vtuber
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <span class="project-tag-accent">SÁNG TẠO NỘI DUNG & GIẢI TRÍ</span>
+                    <h2 class="project-title">Tsumuri VTuber</h2>
+                    <p class="project-desc">
+                        VTuber "chúa lười" nhưng có đam mê bất tận với Minecraft và lập trình server. Kênh chia sẻ những pha tấu hài lầy lội, review tính năng mới của ZoeMC, giao lưu cùng người chơi và những câu chuyện dở khóc dở cười của một dev server Minecraft.
+                    </p>
+                    <div class="tech-stack-row">
+                        <span class="tech-badge">TikTok Creator</span>
+                        <span class="tech-badge">Minecraft Content</span>
+                        <span class="tech-badge">Gaming Streams</span>
+                        <span class="tech-badge">Tấu Hài</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://www.tiktok.com/@tsumuri.vtuber" target="_blank" rel="noopener" class="action-link action-link--tiktok">
+                            <i class="fa-brands fa-tiktok"></i>
+                            Xem TikTok @tsumuri.vtuber
+                        </a>
+                        <a href="https://discord.gg/Xc7ub3YtEC" target="_blank" rel="noopener" class="action-link">
+                            <i class="fa-brands fa-discord"></i>
+                            Giao lưu tại Discord
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ─── Destinations Hub (Cards Grid & Feature Highlight) ─── -->
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <div class="section-heading">
+                <p class="section-eyebrow">Trạm kết nối chính thức</p>
+                <h2>Khám phá hệ sinh thái Tsumuri19</h2>
+            </div>
+            
+            <div class="destination-grid">
+                <!-- ZOE STUDIO Card -->
+                <a class="dest-card" data-accent="studio" href="https://discord.gg/wqcNG4YSBT" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-hammer"></i>
+                    <span class="card-title">ZOE STUDIO</span>
+                    <span class="card-sub">Mọi thứ về Minecraft · discord.gg/wqcNG4YSBT</span>
+                </a>
+
+                <!-- Discord ZoeMC Card -->
+                <a class="dest-card" data-accent="discord" href="https://discord.gg/Xc7ub3YtEC" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-discord"></i>
+                    <span class="card-title">Discord ZoeMC</span>
+                    <span class="card-sub">Cộng đồng server: discord.gg/Xc7ub3YtEC</span>
+                </a>
+                
+                <!-- Minecraft Server Card -->
+                <button class="dest-card copy-ip-btn" data-accent="minecraft" data-ip="zoemc.online">
+                    <i class="fa-solid fa-cube"></i>
+                    <span class="card-title">IP: zoemc.online</span>
+                    <span class="card-sub">Nhấn để sao chép địa chỉ</span>
+                </button>
+
+                <!-- TikTok Card -->
+                <a class="dest-card" data-accent="tiktok" href="https://www.tiktok.com/@tsumuri.vtuber" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-tiktok"></i>
+                    <span class="card-title">TikTok VTuber</span>
+                    <span class="card-sub">@tsumuri.vtuber</span>
+                </a>
+                
+                <!-- GitHub Card -->
+                <a class="dest-card" data-accent="github" href="https://github.com/TsumuriDev" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="card-title">GitHub Profile</span>
+                    <span class="card-sub">github.com/TsumuriDev</span>
+                </a>
+            </div>
+
+            <!-- Spotlight Blog/DevLog Feature -->
+            <div class="blog-feature">
+                <span class="blog-feature-icon" aria-hidden="true">
+                    <i class="fa-solid fa-hammer"></i>
+                </span>
+                <span class="blog-feature-copy">
+                    <span class="blog-feature-eyebrow">ZOE STUDIO · Mọi thứ về Minecraft</span>
+                    <strong>Dịch vụ phát triển, cấu hình và setup máy chủ Minecraft chuyên nghiệp</strong>
+                    <span>Code plugin Paper/Spigot độc quyền (Java 21), tối ưu TPS 20.0, thiết kế DeluxeMenus neon, MMOItems và hỗ trợ kỹ thuật tận tâm. Tham gia Discord Zoe Studio để kết nối ngay!</span>
+                </span>
+                <a href="https://discord.gg/wqcNG4YSBT" target="_blank" rel="noopener" class="blog-feature-action" style="text-decoration:none;">
+                    Vào Zoe Studio
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <!-- Social Pills Row -->
+            <div class="social-row">
+                <a href="https://discord.gg/wqcNG4YSBT" class="social-pill" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-hammer" style="color:#ffd700;"></i>
+                    <span>ZOE STUDIO</span>
+                </a>
+                <a href="https://discord.gg/Xc7ub3YtEC" class="social-pill" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-discord"></i>
+                    <span>ZoeMC Discord</span>
+                </a>
+                <a href="https://www.tiktok.com/@tsumuri.vtuber" class="social-pill" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-tiktok"></i>
+                    <span>@tsumuri.vtuber</span>
+                </a>
+                <a href="https://github.com/TsumuriDev" class="social-pill" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-github"></i>
+                    <span>@TsumuriDev</span>
+                </a>
+                <button class="social-pill copy-ip-btn" data-ip="zoemc.online">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>IP: zoemc.online</span>
+                </button>
+                <div class="social-pill static-pill">
+                    <i class="fa-solid fa-user-check"></i>
+                    <span>Tsumuri19 (Nguyễn Văn Trường)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── Expandable Archives & Extras (Drawer style) ─── -->
+    <section class="compact-links" id="archive">
+        <div class="container">
+            <details class="link-drawer" open>
+                <summary>
+                    <span class="summary-copy">
+                        <strong>Thông tin chi tiết máy chủ & Nhà phát triển</strong>
+                        <span>Nhấn để xem tính năng Survival Mega, nền tảng kỹ thuật và hướng dẫn tham gia</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-down summary-arrow" aria-hidden="true"></i>
+                </summary>
+                
+                <div class="compact-grid">
+                    <!-- Group 1: Tính năng ZoeMC -->
+                    <div class="compact-group">
+                        <h3>Tính Năng ZoeMC</h3>
+                        <div class="compact-list">
+                            <div class="compact-item">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>Survival Mega RPG</span>
+                                <span class="badge">Hot</span>
+                            </div>
+                            <div class="compact-item">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <span>MMOItems & Vũ Khí Custom</span>
+                                <span class="badge">Custom</span>
+                            </div>
+                            <div class="compact-item">
+                                <i class="fa-solid fa-coins"></i>
+                                <span>Kinh Tế Thị Trường & Chợ</span>
+                                <span class="badge">Balanced</span>
+                            </div>
+                            <div class="compact-item">
+                                <i class="fa-solid fa-dungeon"></i>
+                                <span>Boss Dungeon & Phó Bản</span>
+                                <span class="badge">Event</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group 2: Nền tảng Kỹ thuật & GitHub -->
+                    <div class="compact-group">
+                        <h3>Nền Tảng Kỹ Thuật</h3>
+                        <div class="compact-list">
+                            <a class="compact-link" href="https://github.com/TsumuriDev" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-github"></i>
+                                <span>GitHub @TsumuriDev</span>
+                                <span class="badge">Source</span>
+                            </a>
+                            <div class="compact-item">
+                                <i class="fa-brands fa-java"></i>
+                                <span>Java 21 / Paper 1.21+</span>
+                                <span class="badge">Modern</span>
+                            </div>
+                            <div class="compact-item">
+                                <i class="fa-solid fa-gauge-high"></i>
+                                <span>Tối Ưu 20.0 TPS Ổn Định</span>
+                                <span class="badge">Smooth</span>
+                            </div>
+                            <div class="compact-item">
+                                <i class="fa-solid fa-shield-virus"></i>
+                                <span>Hệ Thống Anti-DDoS 24/7</span>
+                                <span class="badge">Secure</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group 3: Kênh Sáng Tạo & VTuber -->
+                    <div class="compact-group">
+                        <h3>Kênh Sáng Tạo & VTuber</h3>
+                        <div class="compact-list">
+                            <a class="compact-link" href="https://www.tiktok.com/@tsumuri.vtuber" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-tiktok"></i>
+                                <span>TikTok @tsumuri.vtuber</span>
+                                <span class="badge">Daily Video</span>
+                            </a>
+                            <a class="compact-link" href="https://discord.gg/Xc7ub3YtEC" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-discord"></i>
+                                <span>Phòng Chat Tsumuri</span>
+                                <span class="badge">Voice & Chat</span>
+                            </a>
+                            <div class="compact-item">
+                                <i class="fa-solid fa-video"></i>
+                                <span>Minecraft Devlogs & Meme</span>
+                                <span class="badge">Content</span>
+                            </div>
+                        </div>
+                        <div class="compact-notice">
+                            <i class="fa-solid fa-circle-info"></i>
+                            Nhớ follow TikTok để không bỏ lỡ clip tấu hài mới nhất!
+                        </div>
+                    </div>
+
+                    <!-- Group 4: Quy định & Hỗ trợ -->
+                    <div class="compact-group">
+                        <h3>Hỗ Trợ & Cộng Đồng</h3>
+                        <div class="compact-list">
+                            <a class="compact-link" href="https://discord.gg/wqcNG4YSBT" target="_blank" rel="noopener">
+                                <i class="fa-solid fa-hammer" style="color:#ffd700;"></i>
+                                <span>Discord ZOE STUDIO</span>
+                                <span class="badge">Studio</span>
+                            </a>
+                            <a class="compact-link" href="https://discord.gg/Xc7ub3YtEC" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-discord"></i>
+                                <span>Discord ZoeMC Server</span>
+                                <span class="badge">Server</span>
+                            </a>
+                            <div class="compact-item">
+                                <i class="fa-solid fa-book"></i>
+                                <span>Luật Chơi Văn Minh</span>
+                                <span class="badge">Rules</span>
+                            </div>
+                            <button class="compact-link copy-ip-btn" data-ip="zoemc.online" style="background:none;border:none;padding:0;font:inherit;cursor:pointer;">
+                                <i class="fa-solid fa-circle-play"></i>
+                                <span>IP: zoemc.online</span>
+                                <span class="badge">Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- ─── Footer ─── -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <img src="assets/tsumuri-avatar.webp" alt="Tsumuri19" class="footer-avatar">
+                <span><strong>Tsumuri19</strong> (Nguyễn Văn Trường) · Nhà phát triển <strong>ZoeMC Network</strong></span>
+            </div>
+            <div class="footer-meta">
+                <a href="https://github.com/TsumuriDev" target="_blank" rel="noopener" style="color:var(--text-muted); font-size:13px;">
+                    <i class="fa-brands fa-github"></i> TsumuriDev
+                </a>
+                <p>&copy; 2026 Tsumuri19 · ZoeMC Network. Thiết kế lấy cảm hứng từ vedal.ai.</p>
+                <a href="#" class="back-to-top">
+                    Lên đầu trang <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive script -->
+    <script src="main.js"></script>
+</body>
+</html>
