@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 await navigator.clipboard.writeText(ip);
-                showToast(`Đã sao chép IP máy chủ: <strong>${ip}</strong>! Sẵn sàng vào game! 🎮`);
+                showToast('Đã sao chép IP máy chủ:', ip, '! Sẵn sàng vào game! 🎮');
             } catch (err) {
                 // Fallback for older browsers
                 const textArea = document.createElement('textarea');
@@ -28,18 +28,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 textArea.select();
                 try {
                     document.execCommand('copy');
-                    showToast(`Đã sao chép IP: <strong>${ip}</strong>! 🎮`);
+                    showToast('Đã sao chép IP:', ip, '! 🎮');
                 } catch (fallbackErr) {
-                    showToast(`IP Máy chủ ZoeMC: <strong>${ip}</strong>`);
+                    showToast('IP Máy chủ ZoeMC:', ip);
                 }
                 document.body.removeChild(textArea);
             }
         });
     });
 
-    function showToast(htmlMessage) {
+    function showToast(prefixText, boldText, suffixText = '') {
         if (!toast) return;
-        toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${htmlMessage}</span>`;
+        toast.textContent = '';
+
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-circle-check';
+
+        const span = document.createElement('span');
+        span.textContent = prefixText + ' ';
+
+        if (boldText) {
+            const strong = document.createElement('strong');
+            strong.textContent = boldText;
+            span.appendChild(strong);
+        }
+
+        if (suffixText) {
+            span.append(suffixText);
+        }
+
+        toast.appendChild(icon);
+        toast.appendChild(span);
         toast.classList.add('show');
 
         clearTimeout(toastTimeout);
