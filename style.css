@@ -1279,7 +1279,7 @@ button {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 26px 20px;
+    padding: 28px 20px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1291,11 +1291,86 @@ button {
     width: 100%;
 }
 
-.dest-card i {
-    font-size: 32px;
-    margin-bottom: 14px;
-    color: var(--zoe-purple);
-    transition: transform var(--trans-smooth), color var(--trans-smooth);
+/* Glassmorphism Icon Box */
+.card-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    position: relative;
+    transition: all var(--trans-smooth);
+    flex-shrink: 0;
+}
+
+.card-icon-box .custom-svg-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform var(--trans-smooth), filter var(--trans-smooth);
+}
+
+.dest-card:hover .card-icon-box {
+    transform: translateY(-4px) scale(1.08);
+}
+
+.dest-card:hover .card-icon-box .custom-svg-icon {
+    transform: scale(1.1);
+}
+
+/* Brand-specific icon box glows */
+.dest-card[data-accent="studio"] .card-icon-box {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.18), rgba(255, 215, 0, 0.03));
+    border-color: rgba(255, 215, 0, 0.35);
+    color: #ffd700;
+}
+.dest-card[data-accent="studio"]:hover .card-icon-box {
+    border-color: #ffd700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.55), inset 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.dest-card[data-accent="discord"] .card-icon-box {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.18), rgba(88, 101, 242, 0.03));
+    border-color: rgba(88, 101, 242, 0.35);
+    color: #5865F2;
+}
+.dest-card[data-accent="discord"]:hover .card-icon-box {
+    border-color: #5865F2;
+    box-shadow: 0 0 30px rgba(88, 101, 242, 0.55), inset 0 0 15px rgba(88, 101, 242, 0.2);
+}
+
+.dest-card[data-accent="minecraft"] .card-icon-box {
+    background: linear-gradient(135deg, rgba(68, 235, 126, 0.18), rgba(68, 235, 126, 0.03));
+    border-color: rgba(68, 235, 126, 0.35);
+    color: #44eb7e;
+}
+.dest-card[data-accent="minecraft"]:hover .card-icon-box {
+    border-color: #44eb7e;
+    box-shadow: 0 0 30px rgba(68, 235, 126, 0.55), inset 0 0 15px rgba(68, 235, 126, 0.2);
+}
+
+.dest-card[data-accent="tiktok"] .card-icon-box {
+    background: linear-gradient(135deg, rgba(254, 44, 85, 0.18), rgba(37, 244, 238, 0.08));
+    border-color: rgba(254, 44, 85, 0.35);
+    color: #FE2C55;
+}
+.dest-card[data-accent="tiktok"]:hover .card-icon-box {
+    border-color: #FE2C55;
+    box-shadow: 0 0 30px rgba(254, 44, 85, 0.55), 0 0 15px rgba(37, 244, 238, 0.35);
+}
+
+.dest-card[data-accent="github"] .card-icon-box {
+    background: linear-gradient(135deg, rgba(240, 246, 252, 0.18), rgba(240, 246, 252, 0.03));
+    border-color: rgba(240, 246, 252, 0.35);
+    color: #f0f6fc;
+}
+.dest-card[data-accent="github"]:hover .card-icon-box {
+    border-color: #f0f6fc;
+    box-shadow: 0 0 30px rgba(240, 246, 252, 0.45);
 }
 
 .dest-card .card-title {
@@ -1313,30 +1388,14 @@ button {
 .dest-card:hover {
     background: var(--surface-hover);
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
-}
-
-.dest-card:hover i {
-    transform: scale(1.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
 }
 
 .dest-card[data-accent="discord"]:hover { border-color: rgba(88, 101, 242, 0.5); }
-.dest-card[data-accent="discord"]:hover i { color: var(--accent-discord); }
-
 .dest-card[data-accent="studio"]:hover { border-color: rgba(255, 215, 0, 0.6); }
-.dest-card[data-accent="studio"]:hover i { color: #ffd700; }
-
 .dest-card[data-accent="tiktok"]:hover { border-color: rgba(254, 44, 85, 0.5); }
-.dest-card[data-accent="tiktok"]:hover i { color: var(--accent-tiktok); }
-
 .dest-card[data-accent="minecraft"]:hover { border-color: rgba(68, 235, 126, 0.5); }
-.dest-card[data-accent="minecraft"]:hover i { color: var(--accent-minecraft); }
-
 .dest-card[data-accent="github"]:hover { border-color: rgba(240, 246, 252, 0.5); }
-.dest-card[data-accent="github"]:hover i { color: #f0f6fc; }
-
-.dest-card[data-accent="developer"]:hover { border-color: rgba(168, 85, 247, 0.5); }
-.dest-card[data-accent="developer"]:hover i { color: var(--accent-dev); }
 
 /* Highlight DevLog / Blog Banner */
 .blog-feature {
@@ -1359,17 +1418,25 @@ button {
 }
 
 .blog-feature-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background: rgba(234, 16, 222, 0.12);
-    border: 1px solid rgba(234, 16, 222, 0.3);
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.18), rgba(234, 16, 222, 0.1));
+    border: 1px solid rgba(255, 215, 0, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    color: var(--zoe-purple);
+    font-size: 22px;
+    color: #ffd700;
     flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: all var(--trans-smooth);
+}
+
+.blog-feature:hover .blog-feature-icon {
+    border-color: #ffd700;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+    transform: scale(1.08);
 }
 
 .blog-feature-copy {
@@ -1546,7 +1613,7 @@ button {
 .compact-link, .compact-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: var(--text-muted);
     font-size: 13px;
     font-weight: 500;
@@ -1554,8 +1621,31 @@ button {
     transition: color var(--trans-fast);
 }
 
+.compact-link i, .compact-item i {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: all var(--trans-fast);
+}
+
 .compact-link:hover {
     color: var(--zoe-purple);
+}
+
+.compact-link:hover i {
+    background: rgba(234, 16, 222, 0.18);
+    border-color: rgba(234, 16, 222, 0.45);
+    color: var(--zoe-purple);
+    box-shadow: 0 0 12px var(--zoe-purple-glow);
+    transform: scale(1.08);
 }
 
 .badge {
